@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --brand-50: #fffdfb;
+  --brand-100: #fffaf2;
+  --brand-200: #fff7ec;
+  --brand-300: #fff4e3;
+  --brand-400: #fff1dd;
+  --brand-primary: #ffeed5;
+  --brand-600: #e8d9c2;
+  --brand-700: #b5a997;
+  --brand-800: #8c8375;
+  --brand-900: #6b6459;
+  --yellow-50: #f8f3e7;
+  --yellow-100: #e9d9b3;
+  --yellow-200: #dec78f;
+  --yellow-300: #cfae5c;
+  --yellow-400: #c69e3c;
+  --yellow-500: #b8860b;
+  --yellow-600: #a77a0a;
+  --yellow-700: #835f08;
+  --yellow-800: #654a06;
+  --yellow-900: #4d3805;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", "Segoe UI", sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #cccccc;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Fraunces", "Georgia", serif;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.input-field {
+  color: #000;
+  border-color: #000;
+  border-radius: 8px;
+}
+
+.filter-select option {
+  padding: 8px 12px;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  body.print-list .print-list,
+  body.print-list .print-list * {
+    visibility: visible;
+  }
+
+  body.print-list .print-list {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  body.print-modal .create-modal,
+  body.print-modal .create-modal * {
+    visibility: visible;
+  }
+
+  body.print-modal .create-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
