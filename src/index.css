@@ -68,6 +68,20 @@ h4 {
 }
 
 @media print {
+  @page {
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    height: auto;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
   body * {
     visibility: hidden;
   }
@@ -84,15 +98,34 @@ h4 {
     width: 100%;
   }
 
-  body.print-modal .create-modal,
-  body.print-modal .create-modal * {
+  body.print-modal .app-shell > :not(.create-modal-overlay) {
+    display: none !important;
+  }
+
+  body.print-modal .create-modal-overlay,
+  body.print-modal .create-modal-overlay * {
     visibility: visible;
   }
 
+  body.print-modal .create-modal-overlay {
+    position: static;
+    inset: auto;
+    padding: 0;
+    background: transparent;
+    min-height: 0;
+  }
+
   body.print-modal .create-modal {
-    position: absolute;
-    left: 0;
-    top: 0;
+    position: static;
+    left: auto;
+    top: auto;
     width: 100%;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  body.print-modal .app-shell {
+    min-height: 0;
   }
 }

@@ -542,10 +542,10 @@ function App() {
   const isEditing = editingProductId !== null;
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_var(--brand-200)_0,_var(--brand-100)_45%,_var(--brand-50)_100%)]  text-[var(--brand-900)] ">
+    <div className="app-shell min-h-screen bg-[radial-gradient(circle_at_top,_var(--brand-200)_0,_var(--brand-100)_45%,_var(--brand-50)_100%)] text-[var(--brand-900)]">
       <HeaderBar />
       <SubMenuBar />
-      <div className="print-list mx-auto max-w-6xl">
+      <div className="print-list mx-auto max-w-6xl my-6">
         <ProductListHeader
           onPrint={() => handlePrint("list")}
           onAddNew={() => {
@@ -756,23 +756,23 @@ function App() {
         </div>
       ) : null}
       {createModalOpen ? (
-        <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/60 px-4 py-10 print:items-start print:bg-transparent">
+        <div className="create-modal-overlay fixed inset-0 z-50 flex items-start justify-center bg-black/60 px-4 py-10 print:items-start print:bg-transparent">
           <div className="create-modal no-scrollbar w-full max-w-4xl max-h-[calc(100vh-5rem)] overflow-y-auto rounded-[28px] bg-white p-8 shadow-2xl print:max-h-none print:overflow-visible print:shadow-none">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <h2 className="text-2xl font-semibold text-[var(--brand-900)]">
                 {isEditing ? "Edit Product" : "Create New"}
               </h2>
-            <button
-              type="button"
-              onClick={() => {
-                setCreateModalOpen(false);
-                setEditingProductId(null);
-              }}
-              aria-label="Close"
-              className="rounded-full p-1 text-[var(--brand-700)] transition hover:text-[var(--yellow-600)]"
-            >
-              <CloseIcon className="h-6 w-6" />
-            </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setCreateModalOpen(false);
+                  setEditingProductId(null);
+                }}
+                aria-label="Close"
+                className="rounded-full p-1 text-[var(--brand-700)] transition hover:text-[var(--yellow-600)]"
+              >
+                <CloseIcon className="h-6 w-6" />
+              </button>
             </div>
 
             <div className="mt-4 flex flex-wrap items-center justify-between gap-4">
@@ -1444,11 +1444,11 @@ function App() {
                         alt="Upload preview"
                         className="h-full w-full rounded-2xl object-cover"
                       />
-                      ) : (
-                        <>
-                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-100)]">
-                            <UploadIcon className="h-12 w-12 text-[var(--brand-600)]" />
-                          </div>
+                    ) : (
+                      <>
+                        <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--brand-100)]">
+                          <UploadIcon className="h-12 w-12 text-[var(--brand-600)]" />
+                        </div>
                         <span className="text-sm font-semibold text-[var(--brand-900)]">
                           Click to upload image
                         </span>
